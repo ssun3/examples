@@ -1,0 +1,24 @@
+resources:
+  - name: my-examples
+    type: git
+    icon: github
+    source:
+      uri: https://github.com/ssun3/examples.git
+
+jobs:
+  # update this pipeline before updating child pipelines
+  - name: set-self
+    public: true
+    plan:
+      - get: my-examples
+        trigger: true
+      - set_pipeline: set-pipelines
+        file: my-examples/pipelines/eue-seed-pipelines.yml
+  - name: set-example-pipelines
+    public: true
+    plan:
+      - get: my-examples
+        trigger: true
+        passed: [set-self]
+      - set_pipeline: hello-world
+        file: my-examples/pipelines/hello-world.yml
