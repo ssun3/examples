@@ -12,7 +12,7 @@ jobs:
     plan:
       - get: my-examples
         trigger: true
-      - set_pipeline: set-pipelines
+      - set_pipeline: eue-seed-pipelines
         file: my-examples/pipelines/eue-seed-pipelines.yml
   - name: set-example-pipelines
     public: true
