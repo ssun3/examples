@@ -22,5 +22,5 @@ jobs:
         passed: [set-self]
       - set_pipeline: hello-world
         file: my-examples/pipelines/hello-world.yml
-      - set_pipeline: time-triggered
-        file: my-examples/pipelines/time-triggered.yml
+      # - set_pipeline: time-triggered
+      #   file: my-examples/pipelines/time-triggered.yml
